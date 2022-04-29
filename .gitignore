@@ -1,0 +1,14 @@
+Compound_Fingerprints_FCFP.tab
+Compound_Fingerprints.tab
+Compound_SMILES.tab
+interactions_kinases_all.tab
+interactions_kinases_IC50_CV.tab
+interactions_kinases_IC50_train.tab
+interactions_kinases_IC50_test.tab
+Interactions_Testset.tab
+Interactions_Trainset.tab
+Interactions_Validset.tab
+kinases_1.csv
+kinases.csv
+TrainedModals.rar
+TrainedModals/
