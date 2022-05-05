@@ -1,0 +1,90 @@
+Problem Statement :
+
+	To design and develop a system to predict binding affinity between a drug compound and Gene-protein-target using Single Task Learning and Multi Task Learning Models and perform drug repurposing techniques on a target protein.
+
+Introduction : 
+
+	Drug discovery is a long, challenging and expensive process that incorporates specialised knowledge
+	from the field of medicine. To reduce this complexity, both in terms of time and effor many computational methods have been developed. 
+
+	This project aims to find and explore the use of various computational methods, including the
+	the deep neural networks, for predicting the binding affinity of protein-ligand interactions.
+
+	Dataset used here is ChEMBL, a publicly available database with protein-ligand binding information.4
+
+	Here we aim at imputing new values in the initially drug compound sparse matrix.
+
+	We follow a ligand-based approach and use chemical fingerprints as features for the models.
+
+Processing of dataset: 
+
+	797 kinases protein targets are selected and data set is obtained.
+
+	Using the kinases protein targets the compounds and interactions are obtained using ChemBL API.
+
+	SMILES(Simplified Molecular Input Line Entry System) of compounds are obtained from ChemBL API.
+
+Filteration of targets : 
+
+	Filter the targets based on, 
+
+	Keep compounds for which there is a SMILES representation and IC50<10000
+
+	If there are still duplicates between the same target-compound pair we keep the one with the lowest value.
+
+	Afterwards, we select only those targets that have at least 100 known interactions.
+
+	We also select only those compounds that share interactions with at least two targets.
+
+	Finally we obtain, 110 targets and 23361 compounds with a total of 62656 interactions.
+
+Using Compound Fingerprint as features : 
+
+	Compound SMILES dataset is imported and read.
+
+	SMILES are split from the compounds and are assigned as tokens.
+
+	Each token is passed through the RDKit which converts the tokens into bit-string.
+
+	The obtained bit-strings are the compound fingerprints.
+
+Modules : 
+
+	Single Task Learning is a common approach to solve regression problems when we have multiple parameter as inputs and single output.
+
+	For this dataset we use three single Task learning methods
+	
+			Random Forest
+			Lasso Regression
+			Neural networks
+
+	Here we train unique model for every single target present in the dataset
+
+	In contrast to single task learning, multitask learning enables the learning of several targets simultaneously.
+
+	Here we train one model for all the target present in the dataset.
+	
+	This approach is expected to make the analysis easier and offer a significant speed-up in training times.
+
+Improving Models with self-training : 
+
+	Self train is done by iteratively expanding the training set with confident predictions and re-training. 
+
+	This is essentially the ability of a model to train itself in order
+	to become more accurate.
+
+	A self-train model is constructed from the best of STL and MTL Models.
+
+Drug repurposing : 
+
+	The self train model is fed with a new set of drugs so if an interaction exists, the particular drug can be given to a particular protein target.
+
+Final evaluation : 
+		
+	Finding new set of drug interactions so-called drug repurposing.
+	
+	Impute the missing values of the so-called DTI matrix.
+ 
+	Benchmarking all the models to find overall efficiency.
+
+
