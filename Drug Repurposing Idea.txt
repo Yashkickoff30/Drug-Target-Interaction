@@ -1,0 +1,25 @@
+Drug Repurposing Idea
+
+=> Take antiviral drug ids and convert them into chembl-ids
+=> Conversion of SMILES to fingerprints
+=> Perform Drug repurposing using Random Forest Model
+=> Outer loop is target from interaction dataset
+=> X-Train with antiviral fingerprint values 
+=> Y-train no need
+=> Train-CID with Chembl id's of antiviral drugs
+=> Model is loaded for each target in the outer loop
+=> Inner loop if x-new length is > 0
+=> x-new -> list going to have new predicted values of interaction between antiviral drugs and existing protein targets
+=> set x-new = 1 // trigger to start the loop
+=> call imputer fn -> model of a single target, cids, fingerprints, threshold
+
+	Imputer fn
+	
+	=> outer loop having all cid's
+	=> for each cid, predict values in the model
+	=> calculate h 
+	=> check condition of h with threshold
+	=> if condition satisfies, append new pred value with its cid to x-new list
+	=> print pred and cid value => final output
+	
+

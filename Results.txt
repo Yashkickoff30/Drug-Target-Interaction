@@ -1,0 +1,59 @@
+Single Task Leanring - Results
+	
+	Since there are 110 targets, 110 models for each of STL models are generated.
+
+-> Random Forests
+	
+	-> Mean score for RF during training = 0.898134
+	-> Performance for RF = 0.648058
+	-> Duration per 1000 predictions = 28.236080788830364
+	-> Mean per target R2-score for RF = 0.5016 and std = 0.1679
+
+-> Lasso Regression 
+		
+	-> Mean score for LR during training = 0.752432
+	-> Performance for NN = 0.576625
+	-> Duration per 1000 predictions = 0.2665165828292855
+	-> Mean per target R2-score for LR = 0.4190 and std = 0.2135
+
+-> Neural Networks
+
+	-> Mean score for NN during training = 0.993015
+	-> Performance for LR = 0.591053
+	-> Duration per 1000 predictions = 1.2484805806771009
+	-> Mean per target R2-score for NN = 0.3892 and std = 0.2388
+
+	we conclude that Random Forest is better than all the STL models in terms of prediction performance r2 score, mean per target r2 score and standard deviation.
+
+Multi-Task Leanring - Results
+
+	A multitask NN consists of a set of shared layers and a number of
+	sub-networks with hidden layers, one per target.
+
+
+-> MTL Model without Dropout
+
+	-> Performance for MTL-D NN = 0.625907
+	-> MSE- accuracy for MTL NN = 2.476941
+
+-> MTL Model with Dropout
+	
+	-> Performance for MTL-D NN = 0.631359
+	-> MSE- accuracy for MTL NN = 2.440843
+
+Both produced similar results but performance of MTL with Dropout is slightly higher.
+
+Finally a self-train model is constructed for Random Forest and MTL-Dropout.
+
+	-> Self Train RF
+
+		A semi-Supervised Model, where new predictions are imputed to the Drug-Target-Interaction Matrix and model gets trained with those new predictions.
+
+		-> Overall accuracy for self-trained RF =  0.8785878550166767
+
+	Needs to be Done
+		
+	-> MLTD - Self Train Model
+	-> Drug Repurposing on new Drug Dataset. 
+
+
